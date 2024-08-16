@@ -1,6 +1,18 @@
 # QT_Projects
 *Rockchip 1808 Cam
 
+Cihaza Bağlanma
+ping <IP>
+ssh root@192.168.10.43
+sftp://<IP>/
+
+Manage Kits
+qmake Path:/toolchain/host/bin/qmake (qt 5.14.2)
+C Compiler Path:/toolchain/host/bin/aarch64-buildroot-linux-gnu-gcc
+C++ Compiler Path:/toolchain/host/bin/aarch64-buildroot-linux-gnu-g++
+
+QT Widget Application 
+Widget Application'ı cihazda çalıştırdığım zaman bazı linker hataları alırsam.
 export QT_QPA_PLATFORM=offscreen
 export WESTON_DRM_MIRROR=1
 export WESTON_DRM_KEEP_RATIO=1
