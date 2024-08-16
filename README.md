@@ -1,4 +1,5 @@
 # QT_Projects
+*Rockchip 1808 Cam
 
 export QT_QPA_PLATFORM=offscreen
 export WESTON_DRM_MIRROR=1
