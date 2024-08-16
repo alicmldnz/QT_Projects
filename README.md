@@ -1,7 +1,7 @@
 # QT_Projects
 *Rockchip 1808 Cam
 
-Cihaza Bağlanma
+Connect to the Device
 ping <IP>
 ssh root@192.168.10.43
 sftp://<IP>/
@@ -12,7 +12,7 @@ C Compiler Path:/toolchain/host/bin/aarch64-buildroot-linux-gnu-gcc
 C++ Compiler Path:/toolchain/host/bin/aarch64-buildroot-linux-gnu-g++
 
 QT Widget Application 
-Widget Application'ı cihazda çalıştırdığım zaman bazı linker hataları alırsam.
+If I get some linker errors when I run the Widget Application on the device.
 export QT_QPA_PLATFORM=offscreen
 export WESTON_DRM_MIRROR=1
 export WESTON_DRM_KEEP_RATIO=1
