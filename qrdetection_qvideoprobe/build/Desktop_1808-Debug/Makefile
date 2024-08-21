@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/aarch64-buildroot-linux-gnu-gcc
 CXX           = /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/aarch64-buildroot-linux-gnu-g++
-DEFINES       = -DQT_QML_DEBUG -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot -g -std=gnu++1z -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../../qrdetection_qvideoprobe -I. -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rockx -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/zbar -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I. -I. -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/devices/linux-buildroot-g++
+DEFINES       = -DQT_NO_KEYWORDS -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_QML_DEBUG
+CFLAGS        = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot -g -pthread -pthread -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot -g -std=gnu++1z -pthread -pthread -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+INCPATH       = -I../../../qrdetection_qvideoprobe -I. -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rockx -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/gstreamer-1.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/glib-2.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/zbar -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/glib-2.0/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I. -I. -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/devices/linux-buildroot-g++
 QMAKE         = /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = qrdetection_qvideoprobe1.0.0
 DISTDIR = /home/grdl/qtprojects/qrdetection_qvideoprobe/build/Desktop_1808-Debug/.tmp/qrdetection_qvideoprobe1.0.0
 LINK          = /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/aarch64-buildroot-linux-gnu-g++
 LFLAGS        = --sysroot=/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot
-LIBS          = $(SUBLIBS) -L/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib -lopencv_core -lopencv_imgproc -lopencv_videoio -lopencv_imgcodecs -lopencv_video -lv4l2 -lopencv_highgui -lzbar -lQt5Multimedia -lQt5Network -lQt5Widgets -lQt5Gui -lQt5Core -latomic -lrt -ldl /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libGLESv2.so -lpthread  -lrt -lpthread -ldl 
+LIBS          = $(SUBLIBS) -L/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib -lopencv_core -lopencv_imgproc -lopencv_videoio -lopencv_imgcodecs -lopencv_video -lv4l2 -lopencv_highgui -lzbar -lgstrtspserver-1.0 -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 -lQt5Multimedia -lQt5Widgets -lQt5Gui -lQt5Network -lQt5Core -latomic -lrt -ldl /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libGLESv2.so -lpthread  -lrt -lpthread -ldl 
 AR            = /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/aarch64-buildroot-linux-gnu-ar cqs
 RANLIB        = 
 SED           = sed
@@ -53,10 +53,14 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../../main.cpp \
-		../../mainwindow.cpp moc_mainwindow.cpp
+		../../mainwindow.cpp \
+		../../streamer.cpp moc_mainwindow.cpp \
+		moc_streamer.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
-		moc_mainwindow.o
+		streamer.o \
+		moc_mainwindow.o \
+		moc_streamer.o
 DIST          = /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/spec_pre.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/common/unix.conf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/common/linux.conf \
@@ -152,23 +156,26 @@ DIST          = /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/default_pre.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/resolve_config.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/default_post.prf \
-		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/cmdline.prf \
-		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qml_debug.prf \
-		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/warn_on.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/link_pkgconfig.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qt.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/resources.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/moc.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/unix/opengl.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/uic.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/unix/thread.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/cmdline.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qml_debug.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/warn_on.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qmake_use.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/file_copies.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/testcase_targets.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/exceptions.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/yacc.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/lex.prf \
-		../../../../qrdetection_qvideoprobe.pro ../../mainwindow.h ../../main.cpp \
-		../../mainwindow.cpp
+		../../../../qrdetection_qvideoprobe.pro ../../mainwindow.h \
+		../../streamer.h ../../main.cpp \
+		../../mainwindow.cpp \
+		../../streamer.cpp
 QMAKE_TARGET  = qrdetection_qvideoprobe
 DESTDIR       = 
 TARGET        = qrdetection_qvideoprobe
@@ -275,15 +282,16 @@ Makefile: ../../qrdetection_qvideoprobe.pro /media/grdl/09e50ce8-257c-4792-ac70-
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/default_pre.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/resolve_config.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/default_post.prf \
-		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/cmdline.prf \
-		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qml_debug.prf \
-		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/warn_on.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/link_pkgconfig.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qt.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/resources.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/moc.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/unix/opengl.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/uic.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/unix/thread.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/cmdline.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qml_debug.prf \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/warn_on.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qmake_use.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/file_copies.prf \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/testcase_targets.prf \
@@ -292,9 +300,9 @@ Makefile: ../../qrdetection_qvideoprobe.pro /media/grdl/09e50ce8-257c-4792-ac70-
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/lex.prf \
 		../../qrdetection_qvideoprobe.pro \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Multimedia.prl \
-		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Network.prl \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Widgets.prl \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Gui.prl \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Network.prl \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../../qrdetection_qvideoprobe.pro -spec devices/linux-buildroot-g++ CONFIG+=debug CONFIG+=qml_debug
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/spec_pre.prf:
@@ -392,15 +400,16 @@ Makefile: ../../qrdetection_qvideoprobe.pro /media/grdl/09e50ce8-257c-4792-ac70-
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/default_pre.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/resolve_config.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/default_post.prf:
-/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/cmdline.prf:
-/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qml_debug.prf:
-/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/warn_on.prf:
+/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/link_pkgconfig.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qt.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/resources.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/moc.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/unix/opengl.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/uic.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/unix/thread.prf:
+/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/cmdline.prf:
+/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qml_debug.prf:
+/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/warn_on.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/qmake_use.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/file_copies.prf:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/testcase_targets.prf:
@@ -409,9 +418,9 @@ Makefile: ../../qrdetection_qvideoprobe.pro /media/grdl/09e50ce8-257c-4792-ac70-
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/lex.prf:
 ../../qrdetection_qvideoprobe.pro:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Multimedia.prl:
-/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Network.prl:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Widgets.prl:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Gui.prl:
+/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Network.prl:
 /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../../qrdetection_qvideoprobe.pro -spec devices/linux-buildroot-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -428,8 +437,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../main.cpp ../../mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../mainwindow.h ../../streamer.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../main.cpp ../../mainwindow.cpp ../../streamer.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -440,7 +449,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
-	-$(DEL_FILE) .qmake.stash
+	-$(DEL_FILE) /home/grdl/qtprojects/qrdetection_qvideoprobe/build/Desktop_1808-Debug/pkg-config_wrapper.sh .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -460,15 +469,20 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/data/dummy.cpp
-	/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/aarch64-buildroot-linux-gnu-g++ -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot -g -std=gnu++1z -Wall -W -dM -E -o moc_predefs.h /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/data/dummy.cpp
+	/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/aarch64-buildroot-linux-gnu-g++ -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot -g -std=gnu++1z -pthread -pthread -dM -E -o moc_predefs.h /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_streamer.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_streamer.cpp
 moc_mainwindow.cpp: ../../mainwindow.h \
 		moc_predefs.h \
 		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/moc
-	/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/moc $(DEFINES) --include /home/grdl/qtprojects/qrdetection_qvideoprobe/build/Desktop_1808-Debug/moc_predefs.h -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/devices/linux-buildroot-g++ -I/home/grdl/qtprojects/qrdetection_qvideoprobe -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rockx -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/zbar -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I. -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/aarch64-buildroot-linux-gnu -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/backward -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include-fixed -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
+	/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/moc $(DEFINES) --include /home/grdl/qtprojects/qrdetection_qvideoprobe/build/Desktop_1808-Debug/moc_predefs.h -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/devices/linux-buildroot-g++ -I/home/grdl/qtprojects/qrdetection_qvideoprobe -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rockx -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/gstreamer-1.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/glib-2.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/zbar -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/glib-2.0/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I. -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/aarch64-buildroot-linux-gnu -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/backward -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include-fixed -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
+
+moc_streamer.cpp: ../../streamer.h \
+		moc_predefs.h \
+		/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/moc
+	/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/bin/moc $(DEFINES) --include /home/grdl/qtprojects/qrdetection_qvideoprobe/build/Desktop_1808-Debug/moc_predefs.h -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/mkspecs/devices/linux-buildroot-g++ -I/home/grdl/qtprojects/qrdetection_qvideoprobe -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rockx -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/gstreamer-1.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/glib-2.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/zbar -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/glib-2.0/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I. -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0 -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/aarch64-buildroot-linux-gnu -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/backward -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include-fixed -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include -I/media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include ../../streamer.h -o moc_streamer.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -498,8 +512,14 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
+streamer.o: ../../streamer.cpp ../../streamer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o streamer.o ../../streamer.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_streamer.o: moc_streamer.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_streamer.o moc_streamer.cpp
 
 ####### Install
 

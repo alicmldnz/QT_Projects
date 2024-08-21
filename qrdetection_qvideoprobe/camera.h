@@ -8,10 +8,6 @@ class Camera : public QObject
 public:
     explicit Camera(QObject *parent = nullptr);
     virtual ~Camera();
-private:
-
-public slots:
-
 };
 
 #endif // CAMERA_H

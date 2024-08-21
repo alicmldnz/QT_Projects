@@ -1,0 +1,26 @@
+QMAKE_CXX.QT_COMPILER_STDCXX = 201402L
+QMAKE_CXX.QMAKE_GCC_MAJOR_VERSION = 6
+QMAKE_CXX.QMAKE_GCC_MINOR_VERSION = 5
+QMAKE_CXX.QMAKE_GCC_PATCH_VERSION = 0
+QMAKE_CXX.COMPILER_MACROS = \
+    QT_COMPILER_STDCXX \
+    QMAKE_GCC_MAJOR_VERSION \
+    QMAKE_GCC_MINOR_VERSION \
+    QMAKE_GCC_PATCH_VERSION
+QMAKE_CXX.INCDIRS = \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0 \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/aarch64-buildroot-linux-gnu \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include/c++/6.5.0/backward \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0/include-fixed \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/include \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/include
+QMAKE_CXX.LIBDIRS = \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc/aarch64-buildroot-linux-gnu/6.5.0 \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/lib/gcc \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/lib64 \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/lib64 \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib64 \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/lib \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/lib \
+    /media/grdl/09e50ce8-257c-4792-ac70-fd7cc9951e99/toolchain-05072021/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib
