@@ -8,9 +8,6 @@ class CameraWidget
 public:
     CameraWidget();
     virtual ~CameraWidget();
-private:
-
-private slots:
 };
 
 #endif // CAMERAWIDGET_H

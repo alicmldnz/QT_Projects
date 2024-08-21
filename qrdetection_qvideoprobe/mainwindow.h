@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "streamer.h"
 #include <QMainWindow>
 #include <QVideoProbe>
 #include <QCamera>
@@ -20,8 +20,8 @@ private:
     Ui::MainWindow *ui;
     QVideoProbe *probe;
     QCamera *camera;
-public slots:
-
+    Streamer *streamer;
+public Q_SLOTS:
     void processFrame(const QVideoFrame &frame);
 };
 
