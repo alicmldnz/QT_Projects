@@ -19,6 +19,7 @@ packagesExist(gstreamer-rtsp-server-1.0) {
 
 SOURCES += \
         capturer.cpp \
+        convert.cpp \
         detection.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -31,6 +32,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     capturer.h \
+    convert.h \
     detection.h \
     mainwindow.h \
     streamer.h

@@ -1,10 +1,10 @@
-#include "streamer.h"
+ #include "streamer.h"
 #include <QDebug>
 #include <unistd.h>
 Streamer *Streamer::VideoStreamer_ptr = nullptr;
 int Streamer::clientCounter = 0;
-const int STREAM_WIDTH = 1280;
-const int STREAM_HEIGHT = 720;
+const int STREAM_WIDTH = 1920;
+const int STREAM_HEIGHT = 1080;
 Streamer::Streamer(QObject *parent) : QObject(parent)
 {
     VideoStreamer_ptr = this;
@@ -21,7 +21,7 @@ void Streamer::initStream()
     //     logger(TAG, "[DETAIL] Streamer init started");
 
     clientCounter = 0;
-
+    //lastFrame.create(cv::Size(STREAM_WIDTH,STREAM_HEIGHT), CV_8UC3);
     streamTimer->start(40);
     gst_init(NULL, NULL);
     gst_timestamp_timer = new QElapsedTimer();
@@ -34,7 +34,8 @@ void Streamer::initStream()
 
     /* create a server instance */
     server = gst_rtsp_server_new();
-
+    const char *port = std::to_string(8555).c_str();
+    g_object_set(server, "service","8555", NULL);
     /* get the mount points for this server, every server has a default object
      * that be used to map uri mount points to media factories */
     mounts = gst_rtsp_server_get_mount_points(server);
@@ -60,7 +61,7 @@ void Streamer::initStream()
 
     /* attach the server to the default maincontext */
     gst_rtsp_server_attach(server, NULL);
-    qDebug() << "rtsp server done";
+
 
 }
 
@@ -136,7 +137,7 @@ void Streamer::gst_media_configure(GstRTSPMediaFactory *factory, GstRTSPMedia *m
 
 void Streamer::gst_need_data()
 {
-    // qDebug() << "GST Needs Data";
+    qDebug() << "GST Needs Data";
     // logger("Streamer", "GST Needs Data");
     VideoStreamer_ptr->gst_has_enough = false;
     // VideoStreamer_ptr->streamFrame();
@@ -144,7 +145,7 @@ void Streamer::gst_need_data()
 
 void Streamer::gst_enough_data()
 {
-    // qDebug() << "GST Has Enough Data";
+    qDebug() << "GST Has Enough Data";
     VideoStreamer_ptr->gst_has_enough = true;
 }
 
@@ -206,10 +207,20 @@ void Streamer::gst_enough_data()
 int Streamer::push_gst_data(cv::Mat current_frame)
 {
     auto start_time_opencv = std::chrono::high_resolution_clock::now();
-
     cv::Mat current_frame_NV12;
+    current_frame_NV12.create(cv::Size(STREAM_WIDTH, STREAM_HEIGHT * 3 / 2), CV_8UC1);
+    if (current_frame.empty()) {
+        qDebug() << "currentframe empty";
+
+    }
     cv::cvtColor(current_frame, current_frame_NV12, cv::COLOR_RGB2YUV_I420);
 
+    // if (current_frame_NV12.empty()) {
+    //     qDebug() << "frame empty";
+    // }
+    // }else {
+    //     qDebug() << "frame is not empty";
+    // }
     // if (current_frame_NV12.empty())
     // {
     //     logger(TAG, -1, "OpenCV conversion failed");
@@ -220,15 +231,11 @@ int Streamer::push_gst_data(cv::Mat current_frame)
     GstMemory *memory;
     GstMapInfo map;
     GstFlowReturn ret_gst;
-
     buffer = gst_buffer_new();
-
     memory = gst_memory_new_wrapped((GstMemoryFlags)0, (gpointer)current_frame_NV12.data, (current_frame_NV12.cols * current_frame_NV12.rows * 3 / 2), 0, (current_frame_NV12.rows * current_frame_NV12.cols * 3 / 2), NULL, NULL);
-
     gst_buffer_insert_memory(buffer, -1, memory);
 
     GST_BUFFER_PTS(buffer) = gst_timestamp_timer->nsecsElapsed();
-
     g_signal_emit_by_name(gst_src, "push-buffer", buffer, &ret_gst);
 
     gst_buffer_unref(buffer);
@@ -239,7 +246,7 @@ int Streamer::push_gst_data(cv::Mat current_frame)
     auto time_opencv = std::chrono::duration_cast<std::chrono::milliseconds>(end_time_opencv - start_time_opencv).count();
     // if (LOG_TIME)
     //     logger(TAG, "[ TIME ] Streamer OpenCV time: " + std::to_string(time_opencv) + " ms");
-
+    qDebug() << "gst pushed data successfully"/*<< QThread::currentThreadId()*/;
     // if (LOG_DETAILS)
     //     logger(TAG, "[DETAIL] gst pushed data successfully");
 
@@ -270,20 +277,78 @@ int Streamer::push_gst_data(cv::Mat current_frame)
 //         return;
 //     }
 // }
-void Streamer::updateFrame(cv::Mat newFrame)
+void Streamer::updateFrame(cv::Mat &newFrame)
 {
+    if (newFrame.empty()) {
+        qDebug() << "newFrame empty";
+    }
+    // newFrame properties:
+    //                    Width:  1920
+    //                    Height:  1080
+    //                    Channels:  4
+    //                    Depth:  "8-bit unsigned"
+    //                            Type:  RGBA
+
     // if (LOG_DETAILS)
     //     logger(TAG, "[DETAIL] updateFrame " + std::to_string(clientCounter));
 
-    cv::Mat tempFrame;
+    // qDebug() << "updateFrame entered" << QThread::currentThreadId();
 
-    cv::cvtColor(newFrame, tempFrame, cv::COLOR_RGB2YUV_I420);
+    /*
+     cv::Mat tempFrame;
+    cv::cvtColor(newFrame, tempFrame, cv::COLOR_RGBA2RGB);*/
+   //  // cv::cvtColor(newFrame, tempFrame, cv::COLOR_RGB2YUV_I420);
 
+   //  int width = tempFrame.cols;
+   //  int height = tempFrame.rows;
+   //  int channels = tempFrame.channels();
+
+   //  // Görüntü veri türü
+   //  int type = tempFrame.type();
+   //  int depth = CV_MAT_DEPTH(type);  // Örneğin, CV_8U
+   //  int cn = CV_MAT_CN(type);  // Kanal sayısı, örneğin 3 (RGB) veya 4 (RGBA)
+
+   //  // Derinliği ve kanal sayısını string olarak döndürür
+   //  QString depthStr;
+   //  switch (depth) {
+   //  case CV_8U: depthStr = "8-bit unsigned"; break;
+   //  case CV_8S: depthStr = "8-bit signed"; break;
+   //  case CV_16U: depthStr = "16-bit unsigned"; break;
+   //  case CV_16S: depthStr = "16-bit signed"; break;
+   //  case CV_32S: depthStr = "32-bit signed"; break;
+   //  case CV_32F: depthStr = "32-bit float"; break;
+   //  case CV_64F: depthStr = "64-bit float"; break;
+   //  default: depthStr = "Unknown depth"; break;
+   //  }
+
+   //  qDebug()<< "Image properties:";
+   //  qDebug()<< "Width: " << width;
+   //  qDebug()<< "Height: " << height ;
+   //  qDebug()<< "Channels: " << channels ;
+   // qDebug()<< "Depth: " << depthStr ;
+   //  qDebug() << "Type: " << (cn == 1 ? "Grayscale" : (cn == 3 ? "RGB" : "RGBA"));
+
+
+    // if (tempFrame.empty()) {
+    //     qDebug() << "tempframe empty";
+
+    // }else {
+    //     qDebug() << "tempframe not empty";
+    // }
     mutex.lock();
+
     lastFrame.create(cv::Size(STREAM_WIDTH,STREAM_HEIGHT), CV_8UC3);
-    cv::resize(tempFrame, lastFrame, cv::Size(STREAM_WIDTH, STREAM_HEIGHT));
+    //qDebug() << "adf cols: " << newFrame.cols << "  "<<newFrame.rows;
+    cv::resize(newFrame, lastFrame, cv::Size(STREAM_WIDTH, STREAM_HEIGHT));
+    if (lastFrame.empty()) {
+        qDebug() << "lastframe empty";
+    }/*else{
+        qDebug() << "lastframe not empty";
+        cv::imwrite("/opt/ali/image.png",lastFrame);
+    }*/
     mutex.unlock();
 
+    // qDebug() << "updateFrame finished" ;
     // if (LOG_DETAILS)
     //     logger(TAG, "[DETAIL] updateFrame");
 }
@@ -298,17 +363,26 @@ void Streamer::streamFrame()
     if (VideoStreamer_ptr->gst_element != nullptr && clientCounter > 0)
     // if (VideoStreamer_ptr->gst_element != nullptr)
     {
+
         auto start_time_push = std::chrono::high_resolution_clock::now();
         mutex.lock();
+        // qDebug() <<    QThread::currentThreadId() << "stream frame";
+        if (lastFrame.empty()) {
+            qDebug() << "streamFrame empty";
+            lastFrame.create(cv::Size(STREAM_WIDTH,STREAM_HEIGHT), CV_8UC3);
+        }
         int ret = push_gst_data(lastFrame);
         mutex.unlock();
+        // cv::imwrite("/opt/ali/lastframe.png",lastFrame);
         // auto end_time_push = std::chrono::high_resolution_clock::now();
         //auto time_push = chrono::duration_cast<chrono::milliseconds>(end_time_push - start_time_push).count();
 
         // if (LOG_TIME)
         //     logger(TAG, "[ TIME ] Streamer push: " + to_string(time_push) + " ms");
 
-        // if (ret < 0)
+        if (ret < 0) {
+            qDebug() << "gst pipeline push data failed";
+        }
         // {
         //     qCritical() << "Gst pipeline push data failed!";
         // }
@@ -319,7 +393,7 @@ void Streamer::clientClosed(GstRTSPClient *client, gpointer user_data)
 {
     clientCounter--;
     // if (LOG_DETAILS)
-    //     qDebug() << "Client left, current client count: " << clientCounter;
+    qDebug() << "Client left, current client count: " << clientCounter;
 }
 
 void Streamer::clientConnected(GstRTSPServer *server, GstRTSPClient *client, gpointer user_data)
@@ -327,5 +401,5 @@ void Streamer::clientConnected(GstRTSPServer *server, GstRTSPClient *client, gpo
     clientCounter++;
     g_signal_connect(client, "closed", (GCallback)clientClosed, NULL);
     // if (LOG_DETAILS)
-    //     qDebug() << "New client, current client count: " << clientCounter;
+    qDebug() << "New client, current client count: " << clientCounter;
 }

@@ -1,19 +1,13 @@
 #ifndef STREAMER_H
 #define STREAMER_H
 #include <QThread>
-#include <opencv2/opencv.hpp>
 #include <unistd.h>
 #include <QMutex>
-
-
-
 #include <QTimer>
 #include <QElapsedTimer>
-
-
 #include <gst/gst.h>
 #include <gst/rtsp-server/rtsp-server.h>
-
+#include <opencv2/opencv.hpp>
 class Streamer : public QObject
 {
     Q_OBJECT
@@ -54,10 +48,11 @@ Q_SIGNALS:
     void gst_start_timer(int);
     void gst_stop_timer();
 
+
 public Q_SLOTS:
     void initStream();
     void streamFrame();
-    void updateFrame(cv::Mat);
+    void updateFrame(cv::Mat &im);
 };
 
 #endif // STREAMER_H

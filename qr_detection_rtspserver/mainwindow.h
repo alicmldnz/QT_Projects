@@ -3,6 +3,7 @@
 #include "streamer.h"
 #include "capturer.h"
 #include "detection.h"
+#include "convert.h"
 #include <QMainWindow>
 #include <QVideoProbe>
 #include <QCamera>
@@ -13,21 +14,28 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QThread workerThread;
+    QThread capturerThread, detectionThread, streamerThread, convertThread;
+    bool *flag;
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+private:
+    void StartCapturer();
+    void StartStreamer();
+    void StartDetection();
+    void StartConvert();
 
 private:
     Ui::MainWindow *ui;
     Streamer *streamer;
-    Detection *detection;
     Capturer *capturer;
+    Detection *detection;
+    Convert *convert;
 public Q_SLOTS:
-    void processFrame(const QVideoFrame &frame);
-
+    void signalControllerFlag();
 Q_SIGNALS:
-    void startOperation();
+    void operate();
+
 };
 
 #endif // MAINWINDOW_H

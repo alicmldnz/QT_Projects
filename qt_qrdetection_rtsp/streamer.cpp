@@ -208,6 +208,10 @@ int Streamer::push_gst_data(cv::Mat current_frame)
     auto start_time_opencv = std::chrono::high_resolution_clock::now();
 
     cv::Mat current_frame_NV12;
+    if (current_frame_NV12.empty()) {
+        std::cerr << "Error: Source image is empty." << std::endl;
+        return;
+    }
     cv::cvtColor(current_frame, current_frame_NV12, cv::COLOR_RGB2YUV_I420);
 
     // if (current_frame_NV12.empty())
