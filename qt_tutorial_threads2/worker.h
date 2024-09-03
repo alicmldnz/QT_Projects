@@ -11,7 +11,7 @@ public:
 public slots:
     void doWork2();
     void doWork3();
-signals:
+Q_SIGNALS:
     void resultReady2(const QString &r);
     void resultReady3(const QString &r);
 };

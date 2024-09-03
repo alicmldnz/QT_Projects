@@ -1,19 +1,25 @@
 #ifndef CAPTURER_H
 #define CAPTURER_H
-#include <QObject>
 #include <QVideoProbe>
 #include <QCamera>
+#include <opencv2/opencv.hpp>
 class Capturer : public QObject
 {
     Q_OBJECT
+
 public:
-    Capturer();
+    explicit Capturer(QObject *parent = nullptr);
+    ~Capturer();
+     QVideoProbe *probe;
 public Q_SLOTS:
-    void capture();
-    void stopCam();
+    void start();
+Q_SIGNALS:
+    void frameReady(const QVideoFrame &frame);
 private:
-    QVideoProbe *probe;
     QCamera *camera;
+
+
+
 };
 
 #endif // CAPTURER_H
