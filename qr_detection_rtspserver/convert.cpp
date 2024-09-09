@@ -13,9 +13,9 @@ void Convert::processFrame(const QVideoFrame &frame)
     }
     QVideoFrame cloneFrame(frame);
     cloneFrame.map(QAbstractVideoBuffer::ReadOnly);
-    cv::Mat im = convQFrametoMat(cloneFrame);
+    cv::Mat im = convQFrametoMat(cloneFrame); // im = Gray
     cv::Mat imGray = im.clone();
-    Q_EMIT imGrayReady(imGray);
+    Q_EMIT imGrayReady(imGray); // for detection Gray is necessary
     cv::cvtColor(im, im, cv::COLOR_GRAY2RGB); // im = RGB
     // cv::cvtColor(imGray, im, cv::COLOR_GRAY2RGB); // im = RGB
     Q_EMIT imReady(im);
@@ -25,6 +25,7 @@ void Convert::processFrame(const QVideoFrame &frame)
 }
 cv::Mat Convert::convQFrametoMat(QVideoFrame cloneFrame)
 {
+    // Conver QFrame to cvMat
     cv::Mat im(cloneFrame.height(), cloneFrame.width(), CV_8UC1, (void*)cloneFrame.bits(), cloneFrame.bytesPerLine()); //Gray
     return im;
 }

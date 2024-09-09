@@ -282,63 +282,9 @@ void Streamer::updateFrame(cv::Mat &newFrame)
     if (newFrame.empty()) {
         qDebug() << "newFrame empty";
     }
-    // newFrame properties:
-    //                    Width:  1920
-    //                    Height:  1080
-    //                    Channels:  4
-    //                    Depth:  "8-bit unsigned"
-    //                            Type:  RGBA
-
-    // if (LOG_DETAILS)
-    //     logger(TAG, "[DETAIL] updateFrame " + std::to_string(clientCounter));
-
-    // qDebug() << "updateFrame entered" << QThread::currentThreadId();
-
-    /*
-     cv::Mat tempFrame;
-    cv::cvtColor(newFrame, tempFrame, cv::COLOR_RGBA2RGB);*/
-   //  // cv::cvtColor(newFrame, tempFrame, cv::COLOR_RGB2YUV_I420);
-
-   //  int width = tempFrame.cols;
-   //  int height = tempFrame.rows;
-   //  int channels = tempFrame.channels();
-
-   //  // Görüntü veri türü
-   //  int type = tempFrame.type();
-   //  int depth = CV_MAT_DEPTH(type);  // Örneğin, CV_8U
-   //  int cn = CV_MAT_CN(type);  // Kanal sayısı, örneğin 3 (RGB) veya 4 (RGBA)
-
-   //  // Derinliği ve kanal sayısını string olarak döndürür
-   //  QString depthStr;
-   //  switch (depth) {
-   //  case CV_8U: depthStr = "8-bit unsigned"; break;
-   //  case CV_8S: depthStr = "8-bit signed"; break;
-   //  case CV_16U: depthStr = "16-bit unsigned"; break;
-   //  case CV_16S: depthStr = "16-bit signed"; break;
-   //  case CV_32S: depthStr = "32-bit signed"; break;
-   //  case CV_32F: depthStr = "32-bit float"; break;
-   //  case CV_64F: depthStr = "64-bit float"; break;
-   //  default: depthStr = "Unknown depth"; break;
-   //  }
-
-   //  qDebug()<< "Image properties:";
-   //  qDebug()<< "Width: " << width;
-   //  qDebug()<< "Height: " << height ;
-   //  qDebug()<< "Channels: " << channels ;
-   // qDebug()<< "Depth: " << depthStr ;
-   //  qDebug() << "Type: " << (cn == 1 ? "Grayscale" : (cn == 3 ? "RGB" : "RGBA"));
-
-
-    // if (tempFrame.empty()) {
-    //     qDebug() << "tempframe empty";
-
-    // }else {
-    //     qDebug() << "tempframe not empty";
-    // }
     mutex.lock();
 
     lastFrame.create(cv::Size(STREAM_WIDTH,STREAM_HEIGHT), CV_8UC3);
-    //qDebug() << "adf cols: " << newFrame.cols << "  "<<newFrame.rows;
     cv::resize(newFrame, lastFrame, cv::Size(STREAM_WIDTH, STREAM_HEIGHT));
     if (lastFrame.empty()) {
         qDebug() << "lastframe empty";

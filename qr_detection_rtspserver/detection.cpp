@@ -14,7 +14,7 @@ void Detection::detectImg(cv::Mat &imGray)
     int height = imGray.rows;
     uchar *raw = (uchar *)imGray.data;
     zbar::Image zbarImage(width, height, "Y800", raw, width * height);
-    cv::imwrite("/opt/ali/imgray.png",imGray);
+    // cv::imwrite("/opt/ali/imgray.png",imGray);
     int n = scanner.scan(zbarImage);
     QVector<cv::Point> points;
     if (n>0)
@@ -48,34 +48,5 @@ void Detection::drawBoundingBox(QVector<cv::Point> points, cv::Mat &imGray)
     // cv::imwrite("/opt/ali/boundingim.png",imGray);
     Q_EMIT imReady(imGray);
 }
-
-
-// void Detection::processFrame(const QVideoFrame &frame)
-// {
-//     if (!frame.isValid()) {
-//         qDebug() << "Frame is not valid";
-//         return;
-//     }
-//     // qDebug() << QThread::currentThreadId() << " Detection::process Frame";
-//     QVideoFrame cloneFrame(frame);
-//     cloneFrame.map(QAbstractVideoBuffer::ReadOnly);
-//     cv::Mat imGray = convQFrametoMat(cloneFrame);
-//     cv::Mat im;
-//     cv::cvtColor(imGray, im, cv::COLOR_GRAY2RGB); // im = RGB
-//     Q_EMIT imReady(im);
-//     // QVector<cv::Point> points = detectImg(imGray);
-//     // if (!points.isEmpty())
-//     // {
-//     //     im = drawBoundingBox(points, im);
-//     //     Q_EMIT imReady(im);
-//     // }
-//     cloneFrame.unmap();
-// }
-
-// cv::Mat Detection::convQFrametoMat(QVideoFrame cloneFrame)
-// {
-//     cv::Mat im(cloneFrame.height(), cloneFrame.width(), CV_8UC1, (void*)cloneFrame.bits(), cloneFrame.bytesPerLine()); //Gray
-//     return im;
-// }
 
 
