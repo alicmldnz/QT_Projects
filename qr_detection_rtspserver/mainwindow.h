@@ -32,7 +32,7 @@ private:
     Detection *detection;
     Convert *convert;
 public Q_SLOTS:
-    void signalControllerFlag();
+    // void signalControllerFlag();
 Q_SIGNALS:
     void operate();
 

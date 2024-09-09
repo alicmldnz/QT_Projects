@@ -6,20 +6,25 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // qDebug() << QThread::currentThreadId() << "main thread";
-    *flag = false;
+    // *flag = false;
+
+    // Capturer Thread starts the camera and sends frame to Process Frame
     capturer = new Capturer;
     capturer->moveToThread(&capturerThread);
     connect(&capturerThread, &QThread::finished, capturer, &QObject::deleteLater);
     connect(this, &MainWindow::operate, capturer, &Capturer::start);
     this-> StartCapturer();
 
+    // Convert Thread converts QFrame to cvMat for Detection Process
     convert = new Convert;
     convert->moveToThread(&convertThread);
     connect(&convertThread, &QThread::finished, convert, &QObject::deleteLater);
-    connect(capturer, &Capturer::frameReady, convert, &Convert::processFrame); // emits imGrayReady and imReady from processFrame
+    connect(capturer, &Capturer::frameReady, convert, &Convert::processFrame);
+    // ProcessFrame emits imGrayReady and imReady
      // Image with bounding box is sent to convert RGB
     this-> StartConvert();
 
+    // Performs detection and Bounding Box drawing operations
     detection = new Detection;
     detection->moveToThread(&detectionThread);
     connect(&detectionThread, &QThread::finished, detection, &QObject::deleteLater);
@@ -27,11 +32,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(convert, &Convert::imGrayReady, detection, &Detection::detectImg); // imGray is sent to detectImg to detect QRCode
     // detectImg emits imReady(imGray) with bounding box from drawBoundingBox
     qRegisterMetaType<cv::Mat>("cv::Mat");
-    connect(detection, &Detection::imReady, convert, &Convert::convGraytoRgb);
-    connect(convert, &Convert::changeFlag, this, &MainWindow::signalControllerFlag); // Im with QRCode is sent to updateFrame
-
+    connect(detection, &Detection::imReady, convert, &Convert::convGraytoRgb); // Im is converted to RGB
+    // // convGraytoRgb emits detectedImReady, changeFlag
+    // connect(convert, &Convert::changeFlag, this, &MainWindow::signalControllerFlag);
     this-> StartDetection();
 
+    // Streams Frame
     streamer = new Streamer;
     streamer->moveToThread(&streamerThread);
     connect(&streamerThread, &QThread::finished, streamer, &QObject::deleteLater);
@@ -55,10 +61,10 @@ MainWindow::~MainWindow()
     convertThread.wait();
 }
 
-void MainWindow::signalControllerFlag(){
-    *flag = true;
-    qDebug() << " flag changed";
-}
+// void MainWindow::signalControllerFlag(){
+//     *flag = true;
+//     qDebug() << " flag changed";
+// }
 
 
 
